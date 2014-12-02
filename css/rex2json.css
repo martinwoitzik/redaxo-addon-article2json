@@ -1,0 +1,24 @@
+/*
+ Rex2Flash
+ @author m[dot]woitzik[at]gmx[dot]de Martin Woitzik
+ @author www.martinwoitzik.de
+ @package redaxo4
+
+ CSS by Martin Woitzik
+*/
+
+textarea {
+	width:500px;
+}
+
+.a-r2f textarea {
+	width:500px;
+	height:300px;
+}
+
+.a-r2f input {
+	width: 150px;
+	height:21px;
+	border:1px solid #777777;
+	background: #cccccc;
+}

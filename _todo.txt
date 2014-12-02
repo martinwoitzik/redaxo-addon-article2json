@@ -1,0 +1,16 @@
+<!-- 
+/**
+ * Rex2Flash
+ * Redaxo-Inhalte Flash-kompatibel ausgeben
+ * @author m[PUNKT]woitzik[AT]gmx[PUNKT]de Martin Woitzik
+ * @package redaxo4.x
+ */
+-->
+
+<h2>ToDo</h2>
+
+<ul>
+	<li>- Konfigurations-Submenu einrichten:</li>
+	<li>- Konfiguration der obersten Menüebene möglich, aus der die Menüstruktur erzeugt wird</li>
+	<li>- Konfiguration der Sprachen und Sprachkürzel möglich</li>
+</ul>

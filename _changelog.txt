@@ -1,0 +1,21 @@
+<!-- 
+/**
+ * Rex2Flash
+ * Redaxo-Inhalte Flash-kompatibel ausgeben
+ * @author m[PUNKT]woitzik[AT]gmx[PUNKT]de Martin Woitzik
+ * @package redaxo4.x
+ */
+-->
+
+<h2>ChangeLog:</h2>
+
+<p><em>26.09.2009 - v1.5</em><br />
+- [Release] Erweiterung:  Menü-Struktur wird rekursiv erzeugt, also beliebige Tiefe und beliebig viele Sprachen im Backend möglich<br/>
+- außerdem wird jetzt in jedem Tag ein Attribut "viewName" ausgegeben, dieses wird aus der Meta-Variable cat_viewName einer Kategorie ausgelesen. Dazu muss diese Variable vorher über das MetaInfos-Addon angelegt und für jede Kategorie definiert werden
+</p>
+
+<p><em>17.06.2009 - v1.0</em><br />
+- [Release] Erstes Release
+</p>
+
+<br />
