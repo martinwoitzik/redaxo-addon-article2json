@@ -12,7 +12,7 @@ After that log into your backend and activate the addon.
 You will see a new menuitem on the sidebar which is called "REX2JSON".<br/>If you click on it you will be able to declare a specific JSON-Output to every module that is defined in your backend.<br/><br/>
 **NOTE:** If there are no modules available nothing can be edited!
 
-If there are modules available you can now press the "XML-Schema zuweisen/ändern" button for one of these. You will see an empty textarea.
+If there are modules available you can now press the "XML-Schema zuweisen/ändern" button for one of these. You will see an empty textarea.<br/>
 Now you can add a specific JSON-Output for the selected module, e.g.:
 
 ```
@@ -38,11 +38,10 @@ As you can see you can define JSON-attributes for every value you need to get fr
 #if#fileN# ... #if#fileN# => same as above but for file-values
 ```
 
-I know that the syntax is far from intuitive - sorry, could be done better but the plugin had to be created fast.  :-)
-
+I know that the syntax is far from intuitive - sorry, could be done better but the plugin had to be created fast.  :-)<br/>
 Feel free to contribute and improve!
 
-If you want to test your JSON-output you can then open any article which contains the selected/edited modules and just add the parameter "&asxml=1" at the end of the URL (sorry, needs to be changed to 'asjson' - the addon was first used as XML exporter). This surely only works if you call the "index.php?article_id=X" URLs and not the SEO-optimized ones.
+If you want to test your JSON-output you can then open any article which contains the selected/edited modules and just add the parameter "&asxml=1" at the end of the URL (sorry, needs to be changed to 'asjson' - the addon was first used as XML exporter).<br/> This surely only works if you call the "index.php?article_id=X" URLs and not the SEO-optimized ones.
 
 
 Cheers!
