@@ -22,7 +22,7 @@ if ($function == "edit_scheme")
 	$xml_scheme = $sql->getValue( "xml_scheme" );
 
 	echo "<div style='line-height:18px;'>";
-	echo "Hier k&ouml;nnen Sie dem gew&auml;hlten Modul ein XML-Schema zuweisen.<br/>Jedes Mal, wenn Sie die index.php mit dem Parameter \"&amp;asxml=1\" aufrufen, werden die Artikel-Slices XML-formatiert ausgegeben.<br/>Jedes Modul ben&ouml;tigt also ein entsprechendes XML-Schema in dem die gespeicherten Modul-Variablen ausgegeben werden.";
+	echo "Hier k&ouml;nnen Sie dem gew&auml;hlten Modul ein JSON-Schema zuweisen.<br/>Jedes Mal, wenn Sie die index.php mit dem Parameter \"&amp;asjson=1\" aufrufen, werden die Artikel-Slices JSON-formatiert ausgegeben.<br/>Jedes Modul ben&ouml;tigt also ein entsprechendes JSON-Schema in dem die gespeicherten Modul-Variablen ausgegeben werden.";
 	echo "</div>";
 	
 	echo "<form class='a-r2f' action='index.php?page=$page&subpage=$subpage&module_id=$module_id&function=save_scheme' method='post' >";
@@ -43,7 +43,7 @@ else if ($function == "save_scheme")
 		$sql->setQuery("UPDATE rex_".$addon_id."_rex2json SET xml_scheme = '$xml_scheme' WHERE module_id=$module_id ");
 	}
 
-	$errortxt = "XML Schema f&uuml;r Modul $module_id wurde gespeichert.";
+	$errortxt = "JSON Schema f&uuml;r Modul $module_id wurde gespeichert.";
 }
 
 
@@ -92,7 +92,7 @@ if ($OUT)
 //  $list->setColumnParams('name', array('function' => 'edit', 'modul_id' => '###id###'));
 
 //  $list->addColumn($I18N->msg('module_functions'), $I18N->msg('delete_module'));
-  $list->addColumn($I18N->msg('module_functions'), "XML Schema zuweisen/ &auml;ndern");
+  $list->addColumn($I18N->msg('module_functions'), "Schema zuweisen/ &auml;ndern");
   $list->setColumnParams($I18N->msg('module_functions'), array('subpage' => $subpage, 'function' => 'edit_scheme', 'module_id' => '###id###', 'module_name' => '###name###'));
 //  $list->addLinkAttribute($I18N->msg('module_functions'), 'onclick', 'return confirm(\''.$I18N->msg('delete').' ?\')');
 
