@@ -42,12 +42,10 @@ As you can see you can define JSON-attributes for every value you need to get fr
 
 I know that the syntax is far from intuitive - sorry, could be done better but the plugin had to be created fast.  :-)
 
-Feel free to contribute and improve!
-
 ##Frontend (get JSON-Output for articles)
 If you want to test your JSON-output you can open any article which contains the selected/edited modules and just add the parameter "&asjson=1" at the end of the URL.<br/> This surely only works if you call the "index.php?article_id=X" URLs and not the SEO-optimized ones.
 
-
+Please feel free to contribute and improve!
 <br/><br/><br/>
 Cheers!
 Martin
