@@ -4,11 +4,11 @@ redaxo-addon-article2json
 Adds optional JSON-Output to Redaxo-CMS-Sites which can be configured in the backend.<br/>
 
 
-#Install
+##Install
 Put all files in a separate folder and copy the whole folder to the */redaxo/addons/* directory.<br/>
 After that log into your backend and activate the addon.
 
-#Backend (add JSON-schemes)
+##Backend (add JSON-schemes)
 You will see a new menuitem on the sidebar which is called "REX2JSON".<br/>If you click on it you will be able to declare a specific JSON-Output to every module that is defined in your backend.<br/><br/>
 **NOTE:** If there are no modules available nothing can be edited!
 
@@ -29,7 +29,7 @@ Now you can add a specific JSON-Output for the selected module, e.g.:
 
 As you can see you can define JSON-attributes for every value you need to get from Redaxo. The module-values can be retrieved by using a hashtag-syntax:
 
-#Hashtag-Syntax
+##Hashtag-Syntax
 
 ```
 ###N### => will resolve to REX_VALUE[N]
@@ -44,10 +44,10 @@ I know that the syntax is far from intuitive - sorry, could be done better but t
 
 Feel free to contribute and improve!
 
-#Frontend (get JSON-Output for articles)
+##Frontend (get JSON-Output for articles)
 If you want to test your JSON-output you can open any article which contains the selected/edited modules and just add the parameter "&asjson=1" at the end of the URL.<br/> This surely only works if you call the "index.php?article_id=X" URLs and not the SEO-optimized ones.
 
 
-
+<br/><br/><br/>
 Cheers!
 Martin
