@@ -78,17 +78,17 @@ class Rex2JSON
 		$version = rex_request('rex_version', 'int');   // Versions Nummer abfragen (0 = LIVE-Version, 1 = ARBEITS-Version)
         $ctype = rex_request('ctype', 'int');
 
-		$asXML = rex_request('asxml', 'int');
+		$asJSON = rex_request('asjson', 'int');
 		$menuStructure = rex_request('menustructure', 'int');
 		$categoryArticles = rex_request('categoryarticles', 'int');
 
         if (!$ctype)
             $ctype = 1;
 
-		if ($page != "content" && $page != "structure" && $asXML == 1) 
+		if ($page != "content" && $page != "structure" && $asJSON == 1) 
 		{
-			// Artikelinhalte XML-formatiert ausgeben			
-			$output = $this->createArticleAsXML( $version, $ctype );
+			// Artikelinhalte JSON-formatiert ausgeben			
+			$output = $this->createArticleAsJSON( $version, $ctype );
 		
 			return $output;
 		}
@@ -130,7 +130,7 @@ class Rex2JSON
 			$output .= "  <article id=\"".$articles[$i]->getId()."\">".$nl;
 //			$output .= "     <id>".$articles[$i]->getId()."</id>".$nl;
 //			$output .= "     <name>".$articles[$i]->getName()."</name>".$nl;
-			$output .= $this->createArticleAsXML( 0, 1, $articles[$i]->getId(), FALSE );
+			$output .= $this->createArticleAsJSON( 0, 1, $articles[$i]->getId(), FALSE );
 			$output .= "  </article>".$nl;
 
 		}
@@ -141,19 +141,19 @@ class Rex2JSON
 	
 	
 	/****************************************************
-	 * Ausgabe der Artikel-Inhalte als XML
+	 * Ausgabe der Artikel-Inhalte als JSON
 	 ****************************************************/	
-	private function createArticleAsXML( $version=0, $ctype=1, $artid=-1, $printHeader=FALSE )
+	private function createArticleAsJSON( $version=0, $ctype=1, $artid=-1, $printHeader=FALSE )
 	{
 		global $REX, $REX_USER;
 
-		// Je nach Artikel-Slice-ID ein anderes XML Schema ausgeben:
+		// Je nach Artikel-Slice-ID ein anderes JSON Schema ausgeben:
 		//
-		// 1. aus Datenbank die Modulschemas laden (XML Strukturen für jedes Modul bzw. jede Modul-ID)
+		// 1. aus Datenbank die Modulschemas laden (JSON Strukturen für jedes Modul bzw. jede Modul-ID)
 		// 2. Slices durchlaufen und für jede Slice-Id das zugehörige Modulschema laden (über Slice-Id/Modul-Id)
 		// 3. in den Schemas gibt es Strings für die ModulVariablen, z.B. "###1###" für REX_VALUE[1] usw.
 		//    diese werden dann durch den entsprechenden Variablen-Aufruf ersetzt z.B. $slice->getValue(1)
-		// 4. danach erfolgt die ausgabe der XML-Blöcke für jeden Slice
+		// 4. danach erfolgt die ausgabe der JSON-Blöcke für jeden Slice
 		
 		$article = ($artid == -1) ? $REX['ARTICLE'] : OOArticle::getArticleById( $artid );
 		$article_id = ($artid == -1) ? $article->article_id : $article->getId();
@@ -196,6 +196,8 @@ class Rex2JSON
 				$slice_is_online = $sliceStatus->isOnline( $nextslice->getId(), $REX['ARTICLE_ID'], $REX['CLANG'] );
 				
 			$sql->setQuery("SELECT xml_scheme FROM rex_999_rex2json WHERE module_id=$module_id;");
+			
+			// @deprecated: should be refactored to $json_scheme or just $scheme
 			$xml_scheme = $sql->getValue( "xml_scheme" );
 			
 			// Platzhalter im Scheme ersetzen, z.B.
@@ -321,7 +323,7 @@ class Rex2JSON
 			  	for ($i=0; $i<count($REX['CLANG']); $i++) 
 			  	{
 					$clangshort = $this->getClangShortcut( $REX['CLANG'][$i] );
-				  	$navigation .= 'url_'.$clangshort.'="'.$urls[$i].'&amp;asxml=1&amp;rex_version='.$version.'&amp;clang='.$i.'" ';
+				  	$navigation .= 'url_'.$clangshort.'="'.$urls[$i].'&amp;asjson=1&amp;rex_version='.$version.'&amp;clang='.$i.'" ';
 				  	$navigation .= 'title_'.$clangshort.'="'.$titles[$i].'" ';
 				  	$navigation .= 'isOnline_'.$clangshort.'="'.$isOnline[$i].'" ';
 			  	}
